@@ -7,15 +7,27 @@ const PostDetail = ({ post }) => {
 
     if (obj) {
       if (obj.bold) {
-        modifiedText = <b key={index}>{text}</b>
+        modifiedText = (
+          <b key={index} className="text-green-200">
+            {text}
+          </b>
+        )
       }
 
       if (obj.italic) {
-        modifiedText = <em key={index}>{text}</em>
+        modifiedText = (
+          <em key={index} className="text-gray-100">
+            {text}
+          </em>
+        )
       }
 
       if (obj.underline) {
-        modifiedText = <u key={index}>{text}</u>
+        modifiedText = (
+          <u key={index} className="text-gray-100">
+            {text}
+          </u>
+        )
       }
     }
 
@@ -55,12 +67,12 @@ const PostDetail = ({ post }) => {
           />
         )
       default:
-        return modifiedText
+        return <div className="text-gray-100">{modifiedText}</div>
     }
   }
 
   return (
-    <div className="mb-8 rounded-lg bg-white pb-12 shadow-lg lg:p-8">
+    <div className="mb-8 rounded-lg bg-gray-800 pb-12 shadow-lg lg:p-8">
       <div className="relative mb-6 overflow-hidden shadow-md">
         <img
           src={post.featuredImage.url}
@@ -78,14 +90,14 @@ const PostDetail = ({ post }) => {
               width="30px"
               className="rounded-full align-middle"
             />
-            <p className="ml-2 inline align-middle text-lg text-gray-700">
+            <p className="ml-2 inline align-middle text-lg text-gray-200">
               {post.author.name}
             </p>
           </div>
-          <div className="font-medium text-gray-700">
+          <div className="font-medium text-gray-300">
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              className="mr-2 inline h-6 w-6 text-pink-500"
+              className="mr-2 inline h-6 w-6 text-green-300"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -100,8 +112,7 @@ const PostDetail = ({ post }) => {
             <span>{moment(post.createAt).format('MMM DD YYYY')}</span>
           </div>
         </div>
-        <h1 className="mb-8 text-3xl font-semibold">{post.title}</h1>
-        {console.log(post.content)}
+        <h1 className="mb-8 text-3xl font-semibold text-white">{post.title}</h1>
         {post.content.raw.children.map((typeObj, index) => {
           const children = typeObj.children.map((item, itemIndex) =>
             getContentFragment(itemIndex, item.text, item)

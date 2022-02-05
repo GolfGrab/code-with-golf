@@ -5,7 +5,7 @@ import moment from 'moment'
 const PostCard = ({ post }) => {
   return (
     <div
-      className="mb-8 rounded-lg bg-white p-0 pb-12 shadow-lg lg:p-8"
+      className="mb-8 rounded-lg bg-gray-800 p-0 pb-12 shadow-lg lg:p-8"
       key={post.title}
     >
       <div className="relative mb-6 overflow-hidden pb-80 shadow-md">
@@ -15,7 +15,7 @@ const PostCard = ({ post }) => {
           className="absolute h-80 w-full rounded-t-lg object-cover object-top shadow-lg lg:rounded-lg"
         />
       </div>
-      <h1 className="mb-8 cursor-pointer text-center text-3xl font-semibold transition duration-100 hover:text-pink-600">
+      <h1 className="mb-8 cursor-pointer text-center text-3xl font-semibold text-white transition duration-100 hover:text-green-300">
         <Link href={`/post/${post.slug}`}>{post.title}</Link>
       </h1>
       <div className="mb-8 block w-full items-center justify-center text-center lg:flex ">
@@ -27,14 +27,14 @@ const PostCard = ({ post }) => {
             width="30px"
             className="rounded-full align-middle"
           />
-          <p className="ml-2 inline align-middle text-lg text-gray-700">
+          <p className="ml-2 inline align-middle text-lg text-gray-200">
             {post.author.name}
           </p>
         </div>
-        <div className="font-medium text-gray-700">
+        <div className="font-medium text-gray-200">
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            className="mr-2 inline h-6 w-6 text-pink-500"
+            className="mr-2 inline h-6 w-6 text-green-300 "
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"
@@ -49,12 +49,12 @@ const PostCard = ({ post }) => {
           <span>{moment(post.createAt).format('MMM DD YYYY')}</span>
         </div>
       </div>
-      <p className="mb-8 px-4 text-center text-lg font-normal text-gray-700 lg:px-20">
+      <p className="mb-8 px-4 text-center text-lg font-normal text-gray-300 lg:px-20">
         {post.excerpt}
       </p>
       <div className="text-center">
         <Link href={`/post/${post.slug}`}>
-          <span className="inline-block transform cursor-pointer rounded-full bg-pink-600 px-8 py-3 text-lg font-medium text-white transition duration-500 hover:-translate-y-1">
+          <span className="inline-block transform cursor-pointer rounded-full bg-green-300 px-8 py-3 text-lg font-semibold text-black transition duration-500 hover:-translate-y-1 hover:bg-green-500 ">
             continue reading
           </span>
         </Link>
