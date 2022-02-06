@@ -6,6 +6,7 @@
     "start": "next start"
   },
   "dependencies": {
+    "daisyui": "^1.25.4",
     "graphql": "^16.3.0",
     "graphql-request": "^4.0.0",
     "html-react-parser": "^1.4.6",

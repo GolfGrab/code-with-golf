@@ -7,27 +7,15 @@ const PostDetail = ({ post }) => {
 
     if (obj) {
       if (obj.bold) {
-        modifiedText = (
-          <b key={index} className="text-green-200">
-            {text}
-          </b>
-        )
+        modifiedText = <b key={index}>{text}</b>
       }
 
       if (obj.italic) {
-        modifiedText = (
-          <em key={index} className="text-gray-100">
-            {text}
-          </em>
-        )
+        modifiedText = <em key={index}>{text}</em>
       }
 
       if (obj.underline) {
-        modifiedText = (
-          <u key={index} className="text-gray-100">
-            {text}
-          </u>
-        )
+        modifiedText = <u key={index}>{text}</u>
       }
     }
 
@@ -67,7 +55,7 @@ const PostDetail = ({ post }) => {
           />
         )
       default:
-        return <div className="text-gray-100">{modifiedText}</div>
+        return modifiedText
     }
   }
 
